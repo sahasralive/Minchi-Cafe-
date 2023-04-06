@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 
@@ -224,12 +225,7 @@ public class View extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
-        DefaultTableModel model = (DefaultTableModel) tblView.getModel();
-        int MyIndex = tblView.getSelectedRow();
-        Key = Integer.valueOf(model.getValueAt(MyIndex, 0).toString());
-        txtName.setText(model.getValueAt(MyIndex, 1).toString());
-        //cmbCategory.setText(model.getValueAt(MyIndex, 2).toString());
-        txtPrice.setText(model.getValueAt(MyIndex, 3).toString());
+       
     }//GEN-LAST:event_tblViewMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

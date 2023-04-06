@@ -123,7 +123,6 @@ public class Product extends javax.swing.JFrame {
         ));
         tblProduct.setRowHeight(25);
         tblProduct.setShowGrid(true);
-        tblProduct.setShowHorizontalLines(true);
         tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblProductMouseClicked(evt);
@@ -326,7 +325,9 @@ public class Product extends javax.swing.JFrame {
     int PNum;
     private void ProductCount(){
         try{
-            St1 = Con.createStatement("Select Max(ID) from Product");
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minchidb", "root", "");
+            St1 = Con.createStatement();
+            Rs1 = St1.executeQuery("Select Max(ID) from Product");
             Rs1.next();
             PNum = Rs1.getInt(1)+1;
             

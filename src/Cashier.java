@@ -46,7 +46,9 @@ public class Cashier extends javax.swing.JFrame {
     int BNum;
     private void BillCount(){
         try{
-            St1 = Con.createStatement("Select Max(BillNum) from Bill");
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minchidb", "root", "");
+            St1 = Con.createStatement();
+            Rs1 = St1.executeQuery("Select Max(BillNum) from Bill");
             Rs1.next();
             BNum = Rs1.getInt(1)+1;
             
